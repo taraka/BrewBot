@@ -14,6 +14,6 @@ class Controller_Default extends Controller_TwitterAuth
 	 */
 	protected function indexAction()
 	{
-		var_dump($this->getTwitter()->get('statuses/home_timeline'));
+		
 	}
 }
