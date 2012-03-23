@@ -19,7 +19,7 @@
 			<div class="pageContent">
 				<div class="header">
 					<div class="logo">
-						<h1><a href="/"></a></h1>
+						<a href="/">BrewBot v0.1</a>
 					</div>
 					<!-- /logo -->
 				</div>

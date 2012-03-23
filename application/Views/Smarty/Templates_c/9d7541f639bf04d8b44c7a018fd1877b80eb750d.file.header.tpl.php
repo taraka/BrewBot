@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.8, created on 2012-03-23 10:52:21
+<?php /* Smarty version Smarty-3.1.8, created on 2012-03-23 12:34:24
          compiled from "/Users/tom/Sites/BrewBot/application/Views/Smarty/Templates/header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2816490994f6c55e516e929-49392706%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9d7541f639bf04d8b44c7a018fd1877b80eb750d' => 
     array (
       0 => '/Users/tom/Sites/BrewBot/application/Views/Smarty/Templates/header.tpl',
-      1 => 1332499394,
+      1 => 1332506064,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.8',
   'unifunc' => 'content_4f6c55e5173257_86344370',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_4f6c55e5173257_86344370')) {function content_4f6c55e5173257_86344370($_smarty_tpl) {?><!doctype html>
 <html lang="en-GB">
@@ -40,7 +40,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<div class="pageContent">
 				<div class="header">
 					<div class="logo">
-						<h1><a href="/"></a></h1>
+						<a href="/">BrewBot v0.1</a>
 					</div>
 					<!-- /logo -->
 				</div>
