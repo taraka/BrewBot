@@ -11,8 +11,9 @@ class Model_Group_User_List extends LSF_Model_List
 	 * Load a list of users that are in agroup
 	 * 
 	 * @param int $userId
+	 * @param bool include optout
 	 */
-	public function load($groupId)
+	public function load($groupId, $includeOptOut = false)
 	{
 		$result = $this->find(array('group_id' => (int)$groupId));
 		

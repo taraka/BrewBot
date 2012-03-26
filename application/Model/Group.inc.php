@@ -45,9 +45,28 @@ class Model_Group extends LSF_DB_ActiveRecord_Model
 	 */
 	public function getUserList()
 	{
-		$groupList = new Model_Group_User_List();
-		$groupList->load($this->getId());
+		$userList = new Model_Group_User_List();
+		$userList->load($this->getId());
 		
-		return $groupList;
+		return $userList;
+	}
+	
+	/**
+	 * Returns a random available user for the group
+	 * @return Model_User
+	 * 
+	 */
+	public function getRandomUser()
+	{
+		$userList = $this->getUserList();
+		
+		foreach ($userList->getIterator() as $key => $userGroup)
+		{
+			if ($userGroup->getUser()->isOptedOut()) {
+				unset($userList[$key]);
+			}
+		}
+		
+		return $userList->random()->getUser(); 
 	}
 }
