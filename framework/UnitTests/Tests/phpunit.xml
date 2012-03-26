@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="../Bootstrap.inc.php">
+  <filter>
+    <whitelist>
+      <directory suffix=".inc.php">/var/lib/jenkins/jobs/LSF2.0/workspace</directory>
+      <exclude>
+        <directory>/var/lib/jenkins/jobs/LSF2.0/workspace/applicationDefaults</directory>
+        <directory>/var/lib/jenkins/jobs/LSF2.0/workspace/Externals</directory>
+        <directory>/var/lib/jenkins/jobs/LSF2.0/workspace/build</directory>
+        <directory>/var/lib/jenkins/jobs/LSF2.0/workspace/UnitTests</directory>
+      </exclude>
+    </whitelist>
+  </filter>
+</phpunit>

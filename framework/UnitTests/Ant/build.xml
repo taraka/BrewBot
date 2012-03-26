@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="LSF" default="build" basedir="../../">
+  <target name="clean">
+    <delete dir="${basedir}/build/logs"/>
+    <delete dir="${basedir}/build/docs"/>
+  </target>
+
+  <target name="prepare">
+    <mkdir dir="${basedir}/build/logs"/>
+    <mkdir dir="${basedir}/build/docs"/>
+  </target>
+  
+  <target name="phpcpd">
+    <exec dir="${basedir}"
+          executable="phpcpd"
+          failonerror="true">
+      <arg line="--log-pmd build/logs/pmd.xml --suffixes .inc.php ."/>
+    </exec>
+  </target>
+ 
+  <target name="pdepend">
+    <exec dir="${basedir}"
+          executable="pdepend"
+          failonerror="true">
+     <arg line="--jdepend-xml=build/logs/jdepend.xml ."/>
+    </exec>
+  </target>
+ 
+  <target name="phpcs">
+    <exec dir="${basedir}"
+          executable="phpcs"
+          output="${basedir}/build/logs/checkstyle.xml"
+          failonerror="false">
+      <arg line="--report=checkstyle ."/>
+    </exec>
+  </target>
+ 
+  <target name="phpunit">
+    <exec dir="${basedir}"
+          executable="phpunit"
+          failonerror="true">
+    <arg line="--log-junit build/logs/phpunit.xml
+               --coverage-clover build/logs/clover.xml
+    		   --coverage-html build/logs/coverage
+    		   --configuration ${basedir}/UnitTests/Tests/phpunit.xml
+               ${basedir}/UnitTests/Tests"/>
+    </exec>
+  </target>
+
+  <target name="phpdoc">
+    <exec dir="${basedir}"
+          executable="phpdoc"
+          failonerror="true">
+     <arg line="-t build/docs/
+                --directory .
+                -ti 'LSF Docs'
+                --undocumentedelements on
+                --output HTML:frames:DOM/earthli"/>
+    </exec>
+  </target>
+
+  <target name="build" depends="clean, prepare, phpcpd, pdepend, phpunit"/>
+</project>

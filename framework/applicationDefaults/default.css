@@ -1,0 +1,51 @@
+@CHARSET "UTF-8";
+
+h1,h2,h3,h4,h5,h6,pre,code { font-size:1em; }
+ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,html,p,blockquote,fieldset,input,object { margin:0; padding:0 }
+a img,:link img,:visited img { border:none }
+
+body {
+	font-family: arial, sans-serif;
+	font-size: 12px;
+}
+.clear {
+	clear: both;
+}
+div.hr hr {
+	display: none;
+}
+div.hr {
+	height: 1px;
+	border-top: 1px dashed #666;
+	margin-bottom: 10px;
+}
+
+.pageContainer {
+	width: 900px;
+	margin: 0 auto;
+	text-align: center;
+	position: relative;
+}
+.content {
+	text-align: left;
+}
+.content h1 {
+	font-size: 30px;
+	margin-bottom: 10px;
+	letter-spacing: -0.05em;
+}
+.content h2 {
+	font-size: 16px;
+	margin-bottom: 10px;
+	letter-spacing: -0.05em;
+}
+.content p,
+.content ul,
+.content ol {
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+.content ul,
+.content ol {
+	margin-left: 20px;
+}
