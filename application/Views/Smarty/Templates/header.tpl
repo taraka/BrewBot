@@ -4,23 +4,19 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta charset="utf-8" />
 	<meta name="generator" content="LSF 1.1" />
-	<title>LSF Application</title>
+	<title>BrewBot</title>
 	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<link rel="shortcut icon" href="/favicon.ico" />
+	<link rel="shortcut icon" href="/images/favicon.ico" />
 
 	<!-- CSS -->
+	<!-- We use less to minify our css, if you want look go to: /less/default.less -->
 	<link href="/css/default.css" rel="stylesheet" type="text/css" title="Default Theme" media="screen" />
 	
 </head>
-<body id="home">
+<body>
 	<div class="pageContainer">
-		<div class="container">
-			<div class="pageContent">
-				<div class="header">
-					<div class="logo">
-						<a href="/">BrewBot v0.1</a>
-					</div>
-					<!-- /logo -->
-				</div>
-				<!-- /header -->
+		<div class="header">
+			<div class="logo">
+				<a href="/">BrewBot v0.1</a>
+			</div>
+		</div>
