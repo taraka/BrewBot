@@ -25,8 +25,13 @@ class Console_Controller_Run extends LSF_Console_Controller
 		foreach ($groupList->getIterator() as $group)
 		{
 			$user = $group->getRandomUser();
+			$tweet = '@' . $user->getUsername() .  ' It\'s your turn to make the ' . date('h:i') . ' brew for the ' . $group->getName() . ' team.';
+			
+			$this->response->appendLine('Tweeting: "' . $tweet . '"');
+			$this->response->flushContent();
+			
 			$this->getTwitter()->post('statuses/update', array(
-				'status'	=> '@' . $user->getUsername() .  ' It\'s your turn to make the ' . date('h:i') . ' brew for the ' . $group->getName() . ' team.'
+				'status'	=> $tweet
 			));
 		}
 	}
