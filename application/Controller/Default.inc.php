@@ -14,6 +14,8 @@ class Controller_Default extends Controller_TwitterAuth
 	 */
 	protected function indexAction()
 	{
+		$groupList = $this->getUser()->getGroupList();
 		
+		$this->view->groupCount = count($groupList); 
 	}
 }

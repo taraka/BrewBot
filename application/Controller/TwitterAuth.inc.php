@@ -12,7 +12,8 @@ require (LSF_Application::getApplicationPath() . '/../Ext/twitteroauth/twitteroa
 abstract class Controller_TwitterAuth extends LSF_Controller
 {
 	private
-		$_twitter;
+		$_twitter,
+		$_user;
 	
 	public function start()
 	{
@@ -32,7 +33,7 @@ abstract class Controller_TwitterAuth extends LSF_Controller
 	 * @throws Exception_TwitterAuth
 	 * @return TwitterOAuth
 	 */
-	public function getTwitter()
+	protected function getTwitter()
 	{
 		if (!isset(LSF_Session::GetSession()->access_token)) {
 			throw new Exception_TwitterAuth('No twitter credentials');
@@ -44,6 +45,37 @@ abstract class Controller_TwitterAuth extends LSF_Controller
 		}
 		
 		return $this->_twitter;
+	}
+	
+	/**
+	 * Gets the twitter username
+	 * 
+	 * @return string
+	 */
+	private function getTwitterUsername()
+	{
+		return isset(LSF_Session::GetSession()->access_token['screen_name']) ? LSF_Session::GetSession()->access_token['screen_name'] : null;
+	}
+	
+	/**
+	 * Returns a loaded user object for the authenticated user
+	 * 
+	 * @return Model_User
+	 */
+	protected function getUser()
+	{
+		if (!$this->_user)
+		{
+			$this->_user = new Model_User();
+			
+			if (!$this->_user->loadByUsername($this->getTwitterUsername()))
+			{
+				$this->_user->setUsername($this->getTwitterUsername());
+				$this->_user->save();
+			}
+		}
+		
+		return $this->_user;
 	}
 	
 	/**
