@@ -17,5 +17,16 @@ class Controller_Default extends Controller_TwitterAuth
 		$groupList = $this->getUser()->getGroupList();
 		
 		$this->view->groupCount = count($groupList); 
+		
+		$groupsArray = array();
+		foreach ($groupList->getIterator() as $userGroup)
+		{
+			$groupsArray[] = array(
+				'id'	=> $userGroup->getGroupId(),
+				'name'	=> $userGroup->getGroup()->getName(),
+			);
+		}
+		
+		$this->view->groups = $groupsArray;
 	}
 }

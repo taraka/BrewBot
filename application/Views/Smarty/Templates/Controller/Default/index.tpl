@@ -1,17 +1,19 @@
 {include file="header.tpl"}
 	
 	<div class="content">
-		<h1>Welcome to LSF!</h1>
-		<p>This is your index page.</p>
+		<h1>Welcome</h1>
+
+		{if $groupCount}
+			<h3>Which group are you here to manage?</h3>
+			<ul>
+				{foreach $groups as $group}
+					<li><a href="/group/edit/{$group.id}">{$group.name}</a></li>
+				{/foreach}
+			</ul>
+		{else}
+			<p>You don't have any brew groups yet, why not <a href="/group/create/">create one</a>.</p>
+		{/if}
 		
-		<div class="hr"><hr /></div>
-	
-		
-		<h2>Where does everything live?</h2>
-		<ul>
-			<li>Templates in: /application/Views/Smarty/Templates</li>
-			<li>Publically accessible files (assets, etc) in: /public</li>
-		</ul>
 	</div>
 	<!-- /content -->
 

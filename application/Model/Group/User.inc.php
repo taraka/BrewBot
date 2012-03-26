@@ -60,4 +60,16 @@ class Model_Group_User extends LSF_DB_ActiveRecord_Model
 		$group->load($this->getGroupId());
 		return $group;
 	}
+
+	/**
+	 * Returns the user object for this link
+	 * 
+	 * @return Model_Group
+	 */
+	public function getUser()
+	{
+		$user = new Model_User();
+		$user->load($this->getUserId());
+		return $user;
+	}
 }
