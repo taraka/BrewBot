@@ -14,6 +14,12 @@ class Controller_Default extends Controller_TwitterAuth
 	 */
 	protected function indexAction()
 	{
+		if ($this->getUser()->isOptedOut())
+		{
+			$this->view->optedOut = true;
+			return true;
+		}
+		
 		$groupList = $this->getUser()->getGroupList();
 		
 		$this->view->groupCount = count($groupList); 

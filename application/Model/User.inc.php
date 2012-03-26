@@ -46,6 +46,27 @@ class Model_User extends LSF_DB_ActiveRecord_Model
 	}
 	
 	/**
+	 * Sets the opted out flag for a user
+	 * 
+	 * @param bool $optedout
+	 * @return void
+	 */
+	public function setOptOut($optedout = true)
+	{
+		$this->optOut = (bool)$optedout;
+	}
+	
+	/**
+	 * Returns true if the user has opted out of brewbot
+	 * 
+	 * @return string
+	 */
+	public function isOptedOut()
+	{
+		return (bool)$this->optOut;
+	}
+	
+	/**
 	 * Returns the group list for the user
 	 * 
 	 * @return Model_User_Group_List
