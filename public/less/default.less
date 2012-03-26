@@ -1,0 +1,146 @@
+/* Yetti CSS reset, helps stop discrepancies between browsers, as we all love IE */
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, details,
+div, dd, del, dl, dfn, dt, em, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe,
+img, input, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, s, samp, section, small, span, strike, strong, sub,
+summary, sup, table, tbody, td, textarea, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-family: Arial, sans-serif;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+input, select { vertical-align: middle; }
+
+b, strong { font-weight: bold; } 
+
+:link, :visited { border: 0; outline: 0; }
+
+.left { float: left; }
+.right { float: right; }
+.clear { clear: both; }
+
+a, button, input, textarea { cursor: pointer; }
+
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+/* ---------------- Remove if not used ---------------- */
+
+article, aside, details, dialog, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+blockquote:before, blockquote:after, q:before, q:after { content:''; }
+blockquote, q { quotes:"" ""; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+caption, th, td { text-align: left; font-weight: normal; float: none !important; }
+table, th, td { vertical-align: middle; }
+
+
+/* ------------------------------------------ Site Colors ------------------------------------------ */
+@blue: #4AB4ED;
+
+
+/* -------------------------------------- Prefixed Properties -------------------------------------- */
+.borderRadius(@radius: 10px) {
+	border-radius: @radius;
+}
+
+.boxShadow(@hor: 0px, @vert: 0px, @blur: 5px, @shadow: #ccc) {
+	box-shadow: @hor @vert @blur @shadow;
+}
+
+.transition(@range: all, @time: 0.5s) {
+	-moz-transition: @range @time ease-out;
+	-webkit-transition: @range @time ease-out;
+	-o-transition: @range @time ease-out;
+	-ms-transition: @range @time ease-out;
+	transition: @range @time ease-out;
+}
+
+.gradient(@origin: top, @color1: #fff, @color2: #999, @startpos: 0%, @endpos: 100%) {
+	background-color: @color1;
+	background-image: linear-gradient(@origin, @color1 @startpos, @color2 @endpos);
+	background-image: -o-linear-gradient(@origin, @color1 @startpos, @color2 @endpos);
+	background-image: -moz-linear-gradient(@origin, @color1 @startpos, @color2 @endpos);
+	background-image: -webkit-linear-gradient(@origin, @color1 @startpos, @color2 @endpos);
+	background-image: -ms-linear-gradient(@origin, @color1 @startpos, @color2 @endpos);
+}
+
+
+/* ----------------------------------------- Deafult Text ------------------------------------------ */
+body {
+	color: @blue;
+	line-height: 1.2em;
+	position: relative;
+}
+
+h1, .h1 {
+	margin-bottom: 0.5em;
+	color: @blue;
+	font-size: 2em;
+	line-height: 1em;
+	font-weight: bold;
+}
+
+h2, .h2 {
+	margin-bottom: 0.5em;
+	color: @blue;
+	font-size: 1.8em;
+	line-height: 1em;
+	font-weight: bold;
+}
+
+h3, .h3 {
+	margin-bottom: 0.5em;
+	color: @blue;
+	font-size: 1.6em;
+	line-height: 1em;
+	font-weight: bold;
+}
+
+h4, .h4 {
+	margin-bottom: 0.5em;
+	color: @blue;
+	font-size: 1.4em;
+	line-height: 1em;
+	font-weight: bold;
+}
+
+h5, .h5 {
+	margin-bottom: 0.5em;
+	color: @blue;
+	font-size: 1.2em;
+	line-height: 1em;
+	font-weight: bold;
+}
+
+h6, .h6 {
+	margin-bottom: 0.5em;
+	color: @blue;
+	font-size: 1em;
+	line-height: 1em;
+	font-weight: bold;
+}
+
+a {
+	color: @blue;
+	text-decoration: none;
+	.transition
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+
+/* ------------------------------------------ Page Containers ------------------------------------------ */
+
+
+
+
