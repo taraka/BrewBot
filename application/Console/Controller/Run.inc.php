@@ -25,7 +25,8 @@ class Console_Controller_Run extends LSF_Console_Controller
 		foreach ($groupList->getIterator() as $group)
 		{
 			$user = $group->getRandomUser();
-			$tweet = '@' . $user->getUsername() .  ' It\'s your turn to make the ' . date('h:i') . ' brew for the ' . $group->getName() . ' team.';
+			
+			$tweet = sprintf($this->getTweetText(), $user->getUsername(), date('h:i'), $group->getName());
 			
 			$this->response->appendLine('Tweeting: "' . $tweet . '"');
 			$this->response->flushContent();
@@ -54,5 +55,15 @@ class Console_Controller_Run extends LSF_Console_Controller
 		}
 		
 		return $this->_twitter;
+	}
+	
+	/**
+	 * Get the text for the tweet
+	 * 
+	 * @return string
+	 */
+	private function getTweetText()
+	{
+		return '@%1$s It\'s your turn to make the %2$s brew the %3$s team.';
 	}
 }
