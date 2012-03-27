@@ -1,13 +1,7 @@
-				<div class="clear"></div>
-				<div class="footer">
-					
-				</div>
-				<!-- /footer -->
-			</div>
-			<!-- pageContent -->
-		</div>
-		<!-- /container -->
+	<div class="clear"></div>
+	<div class="footer">
+		
 	</div>
-	<!-- /pageContainer -->
+</div>
 </body>
 </html>
