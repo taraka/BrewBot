@@ -14,29 +14,35 @@ class Model_BrewBot
 	}
 	
 	/**
-	 * Its time for the brewbot to do its thing!
+	 * It's time for the brewbot to do its thing!
 	 * 
 	 * @return void
 	 */
 	public function timeForABrew($timeslot)
 	{
-		$groupList = new Model_Group_List();
-		$groupList->loadGroupsWithTimeslot($timeslot);
-		
-		foreach ($groupList->getIterator() as $group)
+		if (date('N') <= 5)
 		{
-			$user = $group->getNextUser();
+			$groupList = new Model_Group_List();
+			$groupList->loadGroupsWithTimeslot($timeslot);
 			
-			$tweet = sprintf($this->getTweetText(), $user->getUsername(), $timeslot, $group->getName());
-			
-			$this->notify('Tweeting: "' . $tweet . '"');
-			
-			$this->getTwitter()->post('statuses/update', array(
-				'status'	=> $tweet
-			));
-			
-			$group->setLastUserId($user->getId());
-			$group->save();
+			foreach ($groupList->getIterator() as $group)
+			{
+				$user = $group->getNextUser();
+				
+				$tweet = sprintf($this->getTweetText(), $user->getUsername(), $timeslot, $group->getName());
+				
+				$this->notify('Tweeting: "' . $tweet . '"');
+				
+				$this->getTwitter()->post('statuses/update', array(
+					'status'	=> $tweet
+				));
+				
+				$group->setLastUserId($user->getId());
+				$group->save();
+			}
+		}
+		else {
+			$this->notify('Sorry but I don\'t work weekends.');
 		}
 	}
 	
