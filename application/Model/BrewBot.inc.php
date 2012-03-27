@@ -16,16 +16,16 @@ class Model_BrewBot
 	 * 
 	 * @return void
 	 */
-	public function timeForABrew()
+	public function timeForABrew($timeslot)
 	{
 		$groupList = new Model_Group_List();
-		$groupList->load();
+		$groupList->loadGroupsWithTimeslot($timeslot);
 		
 		foreach ($groupList->getIterator() as $group)
 		{
 			$user = $group->getRandomUser();
 			
-			$tweet = sprintf($this->getTweetText(), $user->getUsername(), date('h:i'), $group->getName());
+			$tweet = sprintf($this->getTweetText(), $user->getUsername(), $timeslot, $group->getName());
 			
 			$this->notify('Tweeting: "' . $tweet . '"');
 			

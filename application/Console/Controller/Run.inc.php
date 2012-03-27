@@ -18,7 +18,9 @@ class Console_Controller_Run extends LSF_Console_Controller implements Interface
 		
 		$brewBot = new Model_BrewBot($this);
 		
-		$brewBot->timeForABrew();
+		$timeslot = new Model_Timeslot();
+		
+		$brewBot->timeForABrew($timeslot);
 	}
 	
 	public function usageAction()
