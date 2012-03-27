@@ -30,7 +30,7 @@ img { max-width:100%; height:auto; }
 
 input, select, option, optgroup, textarea {	font:inherit; }
 input, select { vertical-align: middle; }
-input, textarea { cursor: text; }
+input, textarea { cursor: text !important; }
 
 table { border-collapse: collapse; border-spacing: 0; }
 caption, th, td { text-align: left; font-weight: normal; float: none !important; }
@@ -189,6 +189,10 @@ textarea {
 	height: 150px;
 	padding: 5px;
 	border: 1px solid @darkBG;
+}
+
+input:focus, textarea:focus {
+	border: 1px solid @lightBG;
 }
 
 fieldset {
