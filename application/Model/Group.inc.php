@@ -64,10 +64,10 @@ class Model_Group extends LSF_DB_ActiveRecord_Model
 	 * 
 	 * @return Model_User_Group_List
 	 */
-	public function getUserList()
+	public function getUserList($includeOptOut=false)
 	{
 		$userList = new Model_Group_User_List();
-		$userList->load($this->getId());
+		$userList->load($this->getId(), $includeOptOut);
 		
 		return $userList;
 	}
@@ -98,7 +98,7 @@ class Model_Group extends LSF_DB_ActiveRecord_Model
 	 */
 	public function randomize()
 	{
-		$userList = $this->getUserList();
+		$userList = $this->getUserList(true);
 		$userList->shuffle();
 		
 		$counter = 0;
