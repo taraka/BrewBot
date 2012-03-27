@@ -72,4 +72,15 @@ class Model_Group_User extends LSF_DB_ActiveRecord_Model
 		$user->load($this->getUserId());
 		return $user;
 	}
+	
+	/**
+	 * Set the ordinal for this link
+	 * 
+	 * @param int $ordinal
+	 * @return void
+	 */
+	public function setOrdinal($ordinal)
+	{
+		$this->ordinal = $ordinal;
+	}
 }

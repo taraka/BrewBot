@@ -69,4 +69,22 @@ class Model_Group extends LSF_DB_ActiveRecord_Model
 		
 		return $userList->random()->getUser(); 
 	}
+	
+	/**
+	 * Mix up the order of users in this group
+	 * 
+	 * @return void
+	 */
+	public function randomize()
+	{
+		$userList = $this->getUserList();
+		$userList->shuffle();
+		
+		$counter = 0;
+		foreach ($userList->getIterator() as $userGroup)
+		{
+			$userGroup->setOrdinal($counter++);
+			$userGroup->save();
+		}
+	}
 }

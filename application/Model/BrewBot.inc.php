@@ -1,5 +1,7 @@
 <?php
 
+require (LSF_Application::getApplicationPath() . '/../Ext/twitteroauth/twitteroauth.php');
+
 class Model_BrewBot
 {
 	private
