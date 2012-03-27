@@ -3,3 +3,4 @@
 /.buildpath
 application/Views/Smarty/Templates_c
 /logs
+db/mpm/config/db_config.php
