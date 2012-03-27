@@ -163,4 +163,14 @@ abstract class LSF_Model_List extends LSF_DB_ActiveRecord_Base implements Counta
 	{
 		return new LSF_Model_List_Iterator($this->_items);
 	}
+	
+	/**
+	 * Shuffle the items array
+	 * 
+	 * @return bool
+	 */
+	public function shuffle()
+	{
+		return shuffle($this->_items);
+	}
 }

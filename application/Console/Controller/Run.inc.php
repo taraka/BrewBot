@@ -1,7 +1,5 @@
 <?php
 
-require (LSF_Application::getApplicationPath() . '/../Ext/twitteroauth/twitteroauth.php');
-
 /**
  *
  *

@@ -1,1 +1,1 @@
-/Users/tom/Sites/lsf/cli.php
+../framework/cli.php

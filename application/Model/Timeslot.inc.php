@@ -89,6 +89,6 @@ class Model_Timeslot
 	 */
 	public function __toString()
 	{
-		return $this->getHour() . ':' . $this->getMinute();
+		return $this->getHour() . ':' . str_pad($this->getMinute(), 2, '0');
 	}
 }
