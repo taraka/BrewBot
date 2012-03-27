@@ -35,6 +35,5 @@ class Model_Group_User_List extends LSF_Model_List
 				$this->addItem($groupUser);
 			} 
 		}
-		var_dump($this->getItems());
 	}
 }
