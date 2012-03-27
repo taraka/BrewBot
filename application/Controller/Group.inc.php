@@ -54,7 +54,7 @@ class Controller_Group extends Controller_TwitterAuth
 			/**
 			 * Get members
 			 */
-			$groupUser = $group->getUserList();
+			$groupUser = $group->getUserList(true);
 			$membersValue = "";
 
 			foreach ($groupUser->getIterator() as $link) {
