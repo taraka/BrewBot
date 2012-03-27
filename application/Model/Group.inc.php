@@ -29,6 +29,27 @@ class Model_Group extends LSF_DB_ActiveRecord_Model
 	}
 	
 	/**
+	 * Sets the lst user Id
+	 * 
+	 * @param int userId
+	 * @return void
+	 */
+	public function setLastUserId($userId)
+	{
+		$this->last_user_id = $userId;
+	}
+	
+	/**
+	 * Returns the last userId
+	 * 
+	 * @return int
+	 */
+	public function getLastUserId()
+	{
+		return $this->last_user_id;
+	}
+	
+	/**
 	 * Deletes all user links to this group
 	 * 
 	 * @return void
@@ -86,5 +107,29 @@ class Model_Group extends LSF_DB_ActiveRecord_Model
 			$userGroup->setOrdinal($counter++);
 			$userGroup->save();
 		}
+	}
+	
+	/**
+	 * Returns a random available user for the group
+	 * 
+	 * @return Model_User
+	 */
+	public function getNextUser()
+	{
+		$userList = $this->getUserList();
+		$foundLast = false;
+		
+		foreach ($userList->getIterator() as $key => $userGroup)
+		{
+			if ($foundLast) {
+				return $userGroup->getUser();
+			}
+			
+			if ($userGroup->getUserId() == $this->getLastUserId()) {
+				$foundLast = true;
+			}
+		}
+		
+		return $userList->first()->getUser(); 
 	}
 }

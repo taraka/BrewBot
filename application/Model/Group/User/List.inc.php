@@ -13,9 +13,20 @@ class Model_Group_User_List extends LSF_Model_List
 	 * @param int $userId
 	 * @param bool include optout
 	 */
-	public function load($groupId, $includeOptOut = false)
+	public function load($groupId, $includeOptOut=false)
 	{
-		$result = $this->find(array('group_id' => (int)$groupId));
+		$sql = "";
+		
+		if (!$includeOptOut) {
+			$sql = "INNER JOIN Users u ON u.id = gu.user_id
+			WHERE u.optOut != 1 OR u.optOut IS NULL";
+		}
+		
+		$result = $this->getDataSource()->prepareAndExecute("
+			SELECT gu.* FROM GroupUsers gu 
+			$sql
+			ORDER BY gu.ordinal
+		", array($groupId));
 		
 		while ($row = $result->fetch())
 		{
@@ -24,5 +35,6 @@ class Model_Group_User_List extends LSF_Model_List
 				$this->addItem($groupUser);
 			} 
 		}
+		var_dump($this->getItems());
 	}
 }

@@ -25,7 +25,7 @@ class Model_BrewBot
 		
 		foreach ($groupList->getIterator() as $group)
 		{
-			$user = $group->getRandomUser();
+			$user = $group->getNextUser();
 			
 			$tweet = sprintf($this->getTweetText(), $user->getUsername(), $timeslot, $group->getName());
 			
@@ -34,6 +34,9 @@ class Model_BrewBot
 			$this->getTwitter()->post('statuses/update', array(
 				'status'	=> $tweet
 			));
+			
+			$group->setLastUserId($user->getId());
+			$group->save();
 		}
 	}
 	
