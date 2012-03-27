@@ -22,7 +22,7 @@ class Model_Timeslot
 	 * @param int $minutes
 	 * @return void
 	 */
-	public function setTime()
+	public function setTime($hours, $minutes)
 	{
 		$hours = isset($hours) 		? $hours 	: date('G');
 		$minutes = isset($minutes) 	? $minutes 	: date('i');

@@ -10,7 +10,7 @@ class Model_Group_User_List extends LSF_Model_List
 	/**
 	 * Load a list of users that are in agroup
 	 * 
-	 * @param int $userId
+	 * @param int $groupId
 	 * @param bool include optout
 	 */
 	public function load($groupId, $includeOptOut=false)

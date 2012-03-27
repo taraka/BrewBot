@@ -27,6 +27,11 @@ class Form_Group extends LSF_Form
 			->setLabel('Members')
 			->setHint('New line seperated list of twitter handels')
 		);
+		
+		$element = new LSF_Form_Element();
+		$this->addElement($element->setName('timeslots')
+			->setHidden()
+		);
 	}
 	
 	/**

@@ -12,6 +12,10 @@
 	<!-- We use less to minify our css, if you want look go to: /less/default.less -->
 	<link href="/css/default.css" rel="stylesheet" type="text/css" title="Default Theme" media="screen" />
 	
+	<!-- JS -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.0.0/prototype.js"></script>
+	<script type="text/javascript" src="/js/groupEdit.js"></script>
+	
 </head>
 <body>
 	<div class="pageContainer">

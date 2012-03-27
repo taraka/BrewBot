@@ -51,15 +51,30 @@ class Controller_Group extends Controller_TwitterAuth
 			$form = new Form_Group();
 			$form->setElementValue('name', $group->getName());
 			
+			/**
+			 * Get members
+			 */
 			$groupUser = $group->getUserList();
 			$membersValue = "";
 
-			foreach ($groupUser->getIterator() as $link)
-			{
+			foreach ($groupUser->getIterator() as $link) {
 				$membersValue .= $link->getUser()->getUsername() . "\n";
 			}
 			
 			$form->setElementValue('members', $membersValue);
+			
+			/**
+			 * Get times
+			 */
+			$groupTimeslots = $group->getTimeslotList();
+			$timeslotsValue = array();
+
+			foreach ($groupTimeslots->getIterator() as $link) {
+				$timeslotsValue[] = $link->getTimeslot()->__toString();
+			}
+			
+			$form->setElementValue('timeslots', $timeslotsValue);
+			
 			$this->view->form = $form->render();
 			
 			if ($form->formValidated())
@@ -103,6 +118,21 @@ class Controller_Group extends Controller_TwitterAuth
 				$groupUser->setGroupId($group->getId());
 				$groupUser->setUserId($user->getId());
 				$groupUser->save();
+			}
+			
+			
+			$group->deleteTimeslots();
+			
+			if (is_array($form->getElementValue('timeslots')))
+			{
+				foreach ($form->getElementValue('timeslots') as $time)
+				{
+					$timeslot = new Model_Timeslot($time['Hour'], $time['Minute']);
+					$groupTimeslot = new Model_Group_Timeslot();
+					$groupTimeslot->setGroupId($group->getId());
+					$groupTimeslot->setTimeslot($timeslot);
+					$groupTimeslot->save();
+				}
 			}
 		}
 	}

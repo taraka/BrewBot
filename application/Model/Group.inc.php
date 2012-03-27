@@ -58,6 +58,16 @@ class Model_Group extends LSF_DB_ActiveRecord_Model
 	{
 		$this->getDataSource()->prepareAndExecute("DELETE FROM GroupUsers WHERE group_id = ?", array($this->getId()));
 	}
+	
+	/**
+	 * Deletes all timeslots for this group
+	 * 
+	 * @return void
+	 */
+	public function deleteTimeslots()
+	{
+		$this->getDataSource()->prepareAndExecute("DELETE FROM GroupTimeslots WHERE group_id = ?", array($this->getId()));
+	}
 		
 	/**
 	 * Returns the  group users list for the group
@@ -70,6 +80,19 @@ class Model_Group extends LSF_DB_ActiveRecord_Model
 		$userList->load($this->getId(), $includeOptOut);
 		
 		return $userList;
+	}
+	
+	/**
+	 * Returns the group timeslot list for the group
+	 * 
+	 * @return Model_Group_Timeslot_List
+	 */
+	public function getTimeslotList()
+	{
+		$timeslotList = new Model_Group_Timeslot_List();
+		$timeslotList->load($this->getId());
+		
+		return $timeslotList;
 	}
 	
 	/**
