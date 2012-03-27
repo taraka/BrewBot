@@ -9,32 +9,16 @@ require (LSF_Application::getApplicationPath() . '/../Ext/twitteroauth/twitteroa
  * $Id$
  */
 
-class Console_Controller_Run extends LSF_Console_Controller
+class Console_Controller_Run extends LSF_Console_Controller implements Interface_Observer
 {	
-	private
-		$_twitter;
-		
 	protected function indexAction()
 	{
 		$this->response->appendLine('Triggering brews');
 		$this->response->appendLine('');
 		
-		$groupList = new Model_Group_List();
-		$groupList->load();
+		$brewBot = new Model_BrewBot($this);
 		
-		foreach ($groupList->getIterator() as $group)
-		{
-			$user = $group->getRandomUser();
-			
-			$tweet = sprintf($this->getTweetText(), $user->getUsername(), date('h:i'), $group->getName());
-			
-			$this->response->appendLine('Tweeting: "' . $tweet . '"');
-			$this->response->flushContent();
-			
-			$this->getTwitter()->post('statuses/update', array(
-				'status'	=> $tweet
-			));
-		}
+		$brewBot->timeForABrew();
 	}
 	
 	public function usageAction()
@@ -43,27 +27,13 @@ class Console_Controller_Run extends LSF_Console_Controller
 	}
 	
 	/**
-	 * Get Twitter object
+	 * Recive notifications from the bot
 	 * 
-	 * @return TwitterOAuth
+	 * @param string $text
 	 */
-	protected function getTwitter()
+	public function update($text)
 	{
-		if (!$this->_twitter) {
-			$this->_twitter = new TwitterOAuth(LSF_Config::get('twitter_consumer_key'), LSF_Config::get('twitter_consumer_secret'),
-				LSF_Config::get('brewbot_key'), LSF_Config::get('brewbot_secret'));
-		}
-		
-		return $this->_twitter;
-	}
-	
-	/**
-	 * Get the text for the tweet
-	 * 
-	 * @return string
-	 */
-	private function getTweetText()
-	{
-		return '@%1$s It\'s your turn to make the %2$s brew the %3$s team.';
+		$this->response->appendLine($text);
+		$this->response->flushContent();
 	}
 }
