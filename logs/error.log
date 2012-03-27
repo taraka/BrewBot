@@ -212,3 +212,33 @@
 [Mon Mar 26 11:44:10 2012] [error] [client 192.168.1.56] PHP   4. Controller_TwitterAuth->start() /Users/tom/Sites/lsf/Dispatch/Web.inc.php:38, referer: http://brewbot.tom.dev/
 [Mon Mar 26 11:44:10 2012] [error] [client 192.168.1.56] PHP   5. LSF_Controller->start() /Users/tom/Sites/BrewBot/application/Controller/TwitterAuth.inc.php:23, referer: http://brewbot.tom.dev/
 [Mon Mar 26 11:44:10 2012] [error] [client 192.168.1.56] PHP   6. Controller_Group->editAction() /Users/tom/Sites/lsf/Controller.inc.php:40, referer: http://brewbot.tom.dev/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP Notice:  Undefined index: oauth_token in /Users/tom/Sites/BrewBot/Ext/twitteroauth/twitteroauth.php on line 82, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP Stack trace:, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP   1. {main}() /Users/tom/Sites/lsf/index.php:0, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP   2. LSF_Application->run() /Users/tom/Sites/lsf/index.php:22, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP   3. LSF_Dispatch_Web->run() /Users/tom/Sites/lsf/Application.inc.php:145, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP   4. LSF_Controller->start() /Users/tom/Sites/lsf/Dispatch/Web.inc.php:38, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP   5. Controller_Signin->doAction() /Users/tom/Sites/lsf/Controller.inc.php:40, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP   6. TwitterOAuth->getRequestToken($oauth_callback = 'http://brewbot.tom.dev/signin/complete/') /Users/tom/Sites/BrewBot/application/Controller/Signin.inc.php:35, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP Notice:  Undefined index: oauth_token_secret in /Users/tom/Sites/BrewBot/Ext/twitteroauth/twitteroauth.php on line 82, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP Stack trace:, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP   1. {main}() /Users/tom/Sites/lsf/index.php:0, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP   2. LSF_Application->run() /Users/tom/Sites/lsf/index.php:22, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP   3. LSF_Dispatch_Web->run() /Users/tom/Sites/lsf/Application.inc.php:145, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP   4. LSF_Controller->start() /Users/tom/Sites/lsf/Dispatch/Web.inc.php:38, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP   5. Controller_Signin->doAction() /Users/tom/Sites/lsf/Controller.inc.php:40, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP   6. TwitterOAuth->getRequestToken($oauth_callback = 'http://brewbot.tom.dev/signin/complete/') /Users/tom/Sites/BrewBot/application/Controller/Signin.inc.php:35, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP Notice:  Undefined index: oauth_token in /Users/tom/Sites/BrewBot/application/Controller/Signin.inc.php on line 37, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP Stack trace:, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP   1. {main}() /Users/tom/Sites/lsf/index.php:0, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP   2. LSF_Application->run() /Users/tom/Sites/lsf/index.php:22, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP   3. LSF_Dispatch_Web->run() /Users/tom/Sites/lsf/Application.inc.php:145, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP   4. LSF_Controller->start() /Users/tom/Sites/lsf/Dispatch/Web.inc.php:38, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP   5. Controller_Signin->doAction() /Users/tom/Sites/lsf/Controller.inc.php:40, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP Notice:  Undefined index: oauth_token_secret in /Users/tom/Sites/BrewBot/application/Controller/Signin.inc.php on line 38, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP Stack trace:, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP   1. {main}() /Users/tom/Sites/lsf/index.php:0, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP   2. LSF_Application->run() /Users/tom/Sites/lsf/index.php:22, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP   3. LSF_Dispatch_Web->run() /Users/tom/Sites/lsf/Application.inc.php:145, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP   4. LSF_Controller->start() /Users/tom/Sites/lsf/Dispatch/Web.inc.php:38, referer: http://brewbot.tom.dev/signin/
+[Tue Mar 27 08:42:21 2012] [error] [client 192.168.1.56] PHP   5. Controller_Signin->doAction() /Users/tom/Sites/lsf/Controller.inc.php:40, referer: http://brewbot.tom.dev/signin/
