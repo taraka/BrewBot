@@ -2,3 +2,4 @@
 /.project
 /.buildpath
 application/Views/Smarty/Templates_c
+/logs
