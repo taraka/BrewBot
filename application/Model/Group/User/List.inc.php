@@ -20,7 +20,7 @@ class Model_Group_User_List extends LSF_Model_List
 		if (!$includeOptOut)
 		{
 			$joins = "INNER JOIN Users u ON u.id = gu.user_id";
-			$where = "AND u.optOut != 1 OR u.optOut IS NULL";
+			$where = "AND (u.optOut != 1 OR u.optOut IS NULL)";
 		}
 		
 		$result = $this->getDataSource()->prepareAndExecute("
