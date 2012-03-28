@@ -117,12 +117,12 @@ class Controller_Group extends Controller_TwitterAuth
 						$user->setUsername($username);
 						$user->save();
 					}
+					
+					$groupUser = new Model_Group_User();
+					$groupUser->setGroupId($group->getId());
+					$groupUser->setUserId($user->getId());
+					$groupUser->save();
 				}
-				
-				$groupUser = new Model_Group_User();
-				$groupUser->setGroupId($group->getId());
-				$groupUser->setUserId($user->getId());
-				$groupUser->save();
 			}
 			
 			
