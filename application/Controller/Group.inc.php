@@ -44,9 +44,14 @@ class Controller_Group extends Controller_TwitterAuth
 	 */
 	protected function editAction()
 	{
+		$groupId = $this->getRequest()->getParam(0);
+		
+		$groupMember = new Model_Group_User();
+		$groupMember->load($groupId, $this->getUser()->getId());
+		
 		$group = new Model_Group();
 		
-		if ($group->load($this->getRequest()->getParam(0)))
+		if ($groupMember->isLoaded() && $group->load($groupId))
 		{
 			$form = new Form_Group();
 			$form->setElementValue('name', $group->getName());
