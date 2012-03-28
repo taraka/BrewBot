@@ -14,12 +14,12 @@
 						<li><a href="/group/edit/{$group.id}">{$group.name}</a></li>
 					{/foreach}
 				</ul>
+				<p><a href="/group/create/">Create a new group</a></p>
 			{else}
 				<p>You don't have any brew groups yet, why not <a href="/group/create/">create one</a>.</p>
 			{/if}
 		
-		
-			<p><a href="/user/optout">STOP THE MADNESS!!!!</a></p>
+			<p><a href="/user/optout/">STOP THE MADNESS!!!!</a></p>
 		{/if}
 	</div>
 	<!-- /content -->
