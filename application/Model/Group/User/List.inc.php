@@ -15,16 +15,19 @@ class Model_Group_User_List extends LSF_Model_List
 	 */
 	public function load($groupId, $includeOptOut=false)
 	{
-		$sql = "";
+		$joins = $where = "";
 		
-		if (!$includeOptOut) {
-			$sql = "INNER JOIN Users u ON u.id = gu.user_id
-			WHERE u.optOut != 1 OR u.optOut IS NULL";
+		if (!$includeOptOut)
+		{
+			$joins = "INNER JOIN Users u ON u.id = gu.user_id";
+			$where = "AND u.optOut != 1 OR u.optOut IS NULL";
 		}
 		
 		$result = $this->getDataSource()->prepareAndExecute("
 			SELECT gu.* FROM GroupUsers gu 
-			$sql
+			$joins
+			WHERE gu.group_id = ?
+			$where
 			ORDER BY gu.ordinal
 		", array($groupId));
 		

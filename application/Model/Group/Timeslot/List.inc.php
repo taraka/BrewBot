@@ -16,6 +16,7 @@ class Model_Group_Timeslot_List extends LSF_Model_List
 	{
 		$result = $this->getDataSource()->prepareAndExecute("
 			SELECT gt.* FROM GroupTimeslots gt 
+			WHERE gt.group_id = ?
 			ORDER BY gt.timeslot
 		", array($groupId));
 		
