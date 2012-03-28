@@ -105,6 +105,7 @@ class Controller_Group extends Controller_TwitterAuth
 			$group->deleteMembers();
 			
 			$matches = preg_split('/[\n\r]+/', $form->getElementValue('members'));
+			$userCount = 0;
 			
 			foreach ($matches as $username)
 			{
@@ -122,11 +123,16 @@ class Controller_Group extends Controller_TwitterAuth
 					$groupUser->setGroupId($group->getId());
 					$groupUser->setUserId($user->getId());
 					$groupUser->save();
+					
+					$userCount++;
 				}
 			}
 			
-			
 			$group->deleteTimeslots();
+			
+			if (!$userCount) {
+				$group->delete();
+			}
 			
 			if (is_array($form->getElementValue('timeslots')))
 			{
