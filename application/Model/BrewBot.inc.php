@@ -27,18 +27,22 @@ class Model_BrewBot
 			
 			foreach ($groupList->getIterator() as $group)
 			{
-				$user = $group->getNextUser();
-				
-				$tweet = sprintf($this->getTweetText(), $user->getUsername(), $timeslot, $group->getName());
-				
-				$this->notify('Tweeting: "' . $tweet . '"');
-				
-				$this->getTwitter()->post('statuses/update', array(
-					'status'	=> $tweet
-				));
-				
-				$group->setLastUserId($user->getId());
-				$group->save();
+				if ($user = $group->getNextUser())
+				{
+					$tweet = sprintf($this->getTweetText(), $user->getUsername(), $timeslot, $group->getName());
+					
+					$this->notify('Tweeting: "' . $tweet . '"');
+					
+					$this->getTwitter()->post('statuses/update', array(
+						'status'	=> $tweet
+					));
+					
+					$group->setLastUserId($user->getId());
+					$group->save();
+				}
+				else {
+					$this->notify('Group has no active users"');
+				}
 			}
 		}
 		else {

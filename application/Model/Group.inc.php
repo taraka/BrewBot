@@ -152,7 +152,8 @@ class Model_Group extends LSF_DB_ActiveRecord_Model
 				$foundLast = true;
 			}
 		}
-		
-		return $userList->first()->getUser(); 
+		if ($user = $userList->first()) {
+			return $user->getUser();
+		} 
 	}
 }
